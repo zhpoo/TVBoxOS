@@ -3,7 +3,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
+    namespace 'com.github.tvbox.osc.player'
+    compileSdk 33
 
     defaultConfig {
         minSdkVersion 16
@@ -11,9 +12,14 @@ android {
     }
 
     buildTypes {
-        all {
+        configureEach {
             ndk {
                 abiFilters 'armeabi-v7a'
+            }
+        }
+        debug {
+            ndk {
+                abiFilters 'x86'
             }
         }
         release {

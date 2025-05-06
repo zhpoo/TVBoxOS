@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    namespace 'com.github.tvbox.osc'
+    compileSdk 33
 
     defaultConfig {
         applicationId 'com.github.tvbox.osc'
@@ -39,10 +40,11 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
+            debuggable true
 
             ndk {
                 //noinspection ChromeOsAbiSupport
-                abiFilters 'armeabi-v7a'
+                abiFilters 'armeabi-v7a', 'x86'
             }
         }
         release {
@@ -84,7 +86,7 @@ repositories {
 
 }
 dependencies {
-    api fileTree(dir: "libs", include: ["*.jar","*.aar"])
+    api fileTree(dir: "libs", include: ["*.jar", "*.aar"])
 
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
     implementation 'com.google.zxing:core:3.3.0'
@@ -127,9 +129,9 @@ dependencies {
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
     //支持http3
-    implementation ('com.google.net.cronet:cronet-okhttp:0.1.0')
+    implementation('com.google.net.cronet:cronet-okhttp:0.1.0')
 //    implementation 'com.google.android.gms:play-services-cronet:18.0.1'
-    implementation ('org.chromium.net:cronet-embedded:101.4951.41')
+    implementation('org.chromium.net:cronet-embedded:101.4951.41')
     implementation 'org.brotli:dec:0.1.2'
 }
 

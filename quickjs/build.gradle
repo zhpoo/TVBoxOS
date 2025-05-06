@@ -3,7 +3,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
+    namespace 'com.whl.quickjs.android'
+    compileSdk 33
 
     defaultConfig {
         minSdkVersion 16
@@ -16,7 +17,7 @@ android {
     }
 
     buildTypes {
-        all {
+        configureEach {
             ndk {
                 abiFilters 'armeabi-v7a'
             }
@@ -27,6 +28,9 @@ android {
         }
 
         debug {
+            ndk {
+                abiFilters 'x86'
+            }
         }
     }
     compileOptions {
